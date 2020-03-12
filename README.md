@@ -1,1 +1,1 @@
-# Projeto-Geometria
+# GeometryClass
