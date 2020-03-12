@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DaoGenerico<Entidade, Chave> extends CrudRepository<Entidade, Chave>{
 
-	public Entidade findByNome(String nome);	
+	public Optional<Entidade> findByNome(String nome);	
 }
