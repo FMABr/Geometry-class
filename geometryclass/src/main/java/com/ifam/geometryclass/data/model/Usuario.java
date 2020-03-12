@@ -3,12 +3,17 @@ package com.ifam.geometryclass.data.model;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Usuario {
 	
 	@Id
+	@GeneratedValue(generator="hibernate-uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private UUID id;
 	private String nome;
 	private String email;

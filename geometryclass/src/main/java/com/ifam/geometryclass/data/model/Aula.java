@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Aula {
@@ -12,6 +13,8 @@ public class Aula {
 	private String nome;
 	private String conteudo;
 	private List<String> tags;
+	
+	@OneToOne
 	private GeometriaAula geometria;
 	
 	public String getNome() {

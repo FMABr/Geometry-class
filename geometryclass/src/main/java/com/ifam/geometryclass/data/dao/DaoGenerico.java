@@ -1,20 +1,10 @@
 package com.ifam.geometryclass.data.dao;
 
-import java.io.Serializable;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+@Repository
+public interface DaoGenerico<Entidade, Chave> extends CrudRepository<Entidade, Chave>{
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-public abstract class DaoGenerico<T, I extends Serializable>{
-
-	@Autowired
-	protected EntityManager entityManager;
-	
-	private Class<T> persistido;
-	
-	public DaoGenerico(Class<T> persistido) {
-		this.persistido = persistido;
-	}
+	public Entidade findByNome(String nome);	
 }

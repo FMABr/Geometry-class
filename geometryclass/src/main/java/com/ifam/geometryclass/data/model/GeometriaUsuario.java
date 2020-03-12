@@ -5,6 +5,8 @@ import java.util.UUID;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class GeometriaUsuario extends Geometria {
@@ -33,4 +35,8 @@ public class GeometriaUsuario extends Geometria {
 	
 	@EmbeddedId
 	private GeometriaKey chave;
+	
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private Usuario usuario;
 }
