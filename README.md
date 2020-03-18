@@ -14,7 +14,7 @@ Aplicação web desenvolvida como projeto de LP II em 2020 no [IFAM - CMC]
 
 Visando o aprendizado, o site tem como objetivo auxiliar os estudantes no estudo da Geometria Espacial, permitindo que eles visualizem como os conceitos e fórmulas se apresentam fisicamente em um espaço tridimensional e facilitando a compreensão do assunto.
 
-## Tecnologias Utilizadas
+## Dependências
 
 ### [<img alt="Maven" rel="external" src="https://maven.apache.org/images/maven-logo-black-on-white.png" width="400" height="100"/>][Maven]
 
