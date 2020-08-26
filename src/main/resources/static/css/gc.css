@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap');
+
+:root {
+  --bgDarkest: #0d1218;
+  --bgDarker: #131c26;
+  --bgDark: #080a2b;
+  
+  --fgDarkest: #1d4668;
+  --fgDarker: #236397;
+  --fgDark: #2989D6;
+  
+  --axDark: #d64e29;
+
+  --navbar-height: 5rem;
+  --sidebar-width: 8rem;
+  --sidebar-extended-width: 20rem;
+
+  background-color: var(--bgDark);
+  
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 10px;
+}

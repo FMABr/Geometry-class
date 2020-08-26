@@ -1,0 +1,45 @@
+.post .content {
+  color: white;
+  background-color: transparent;
+}
+.post .content h3, .post .content h4, .post .content h5, .post .content h6 {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.post .content h3 {
+  font-size: 28px;
+}
+.post .content h4 {
+  font-size: 24px;
+}
+.post .content h5 {
+  font-size: 20px;
+}
+.post .content h6 {
+  font-size: 16px;
+}
+.post .content p {
+  font-size: 16px;
+}
+.post .content blockquote {
+  background-color: var(--bgDark);
+}
+.post .content sup, .post .content sub {
+  font-size: 0.8em;
+}
+.post .content sup {
+  vertical-align: super;
+}
+.post .content sub {
+  vertical-align: sub;
+}
+.post .content strong {
+  font-weight: bold;
+}
+.post .content em {
+  font-style: italic;
+}
+.post .content div {
+  border: 2px dashed var(--fgDarker);
+  font-size: 16px;
+}
