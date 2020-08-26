@@ -1,0 +1,233 @@
+#entrar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+  font-family: "Chakra Petch", sans-serif;
+  animation: fadeIn 0.5s ease 0s 1 normal forwards;
+}
+
+#entrar .container {
+  position: relative;
+  width: 350px;
+  height: 425px;
+  margin: auto;
+  border: 2px solid var(--fgDarker);
+  border-radius: 20px;
+  background-color: var(--bgDarkest);
+  overflow: hidden;
+  animation: popup 0.5s ease 0s 1 normal forwards;
+}
+
+#entrar .container form {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  transition-property: left, right;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+#entrar .container .cadastro {
+  right: 0;
+}
+
+#entrar .container .login {
+  left: 100%;
+}
+
+#entrar .container .cadastro.alt {
+  right: 100%;
+}
+
+#entrar .container .login.alt {
+  left: 0;
+}
+
+#entrar .container h2 {
+  padding: 0.5em;
+  color: var(--fgDark);
+  text-align: center;
+  font-size: 4rem;
+}
+
+#entrar .container .field {
+  position: relative;
+  height: 3rem;
+  margin: 0 3rem;
+  padding-bottom: 3.6rem;
+  border-bottom: 2px dashed var(--fgDark);
+  margin-bottom: 2.5rem;
+  color: var(--fgDark);
+  font-size: 2rem;
+}
+
+#entrar .container .field::after {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--fgDark);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: 0%;
+  transition: transform 300ms ease;
+}
+
+#entrar .container .field:focus-within::after {
+  transform: scaleX(1);
+}
+
+#entrar .container .text-input {
+  width: 100%;
+  padding: 0.5rem 0;
+  outline: none;
+  margin: 0;
+  
+  color: white;
+  background-color: inherit;
+}
+
+#entrar .container .text-input:invalid {
+  box-shadow: none;
+}
+
+#entrar .container .text-input:invalid + .text-label, #entrar .container .text-label.error {
+  border-left: 3px dotted var(--axDark);
+}
+
+#entrar .container .text-label {
+  position: absolute;
+  left: 0;
+  
+  width: 100%;
+  
+  transform: translateY(1rem);
+  transform-origin: 0%;
+  transition: transform 300ms ease;
+  cursor: text;
+}
+
+#entrar .container .text-label.error .erro {
+  position: absolute;
+  left:0;
+  bottom: 105%;
+  z-index: 1;
+  
+  visibility: hidden;
+  
+  padding: 0 2px;
+  border: 1px solid var(--fgDark);
+  border-radius: 5px;
+    
+  background-color: black;
+  
+  font-size: 0.8em;
+}
+
+#entrar .container .text-label.error .erro:after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 5px);
+  left: 20px;
+  
+  height: 10px;
+  width: 10px;
+  border-bottom:inherit;
+  border-right:inherit;
+  
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+#entrar .container .text-label.error span:hover + .erro {
+  visibility: visible;
+}
+
+#entrar .container .field:focus-within .text-label, #entrar .container .text-input:not(:placeholder-shown)+.text-label {
+  transform: scale(0.8) translateY(-2rem);
+}
+
+#entrar .container .field:focus-within .text-label {
+  border-left: none;
+}
+
+#entrar .container .submit {
+  align-self: flex-end;
+  
+  padding: 1rem;
+  border: 2px solid var(--fgDarker);
+  margin: auto;
+  
+  color: var(--fgDark);
+  background-color: var(--bgDarkest);
+  
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 200ms, background-color 200ms;
+}
+
+#entrar .container .submit:hover, #entrar .container .submit:focus {
+  color: white;
+  background-color: var(--fgDark);
+}
+
+#entrar .container button {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+  height: 100%;
+  padding: 0px 5px;
+  color: var(--fgDark);
+  background-color: transparent;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: background-color 100ms, left 500ms ease-in-out, transform
+    500ms linear;
+}
+
+#entrar .container button:hover, #entrar .container button:focus {
+  background-color: var(--fgDarkest);
+}
+
+#entrar .container button.alt {
+  left: 0;
+  transform: translateX(0);
+}
+
+#entrar .container button i {
+  transition: transform 200ms linear 100ms;
+}
+
+#entrar .container button i.alt {
+  transform: rotate(180deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+@keyframes popup {
+  from { 
+    transform: scale(0);
+  } to {
+    transform: scale(1);
+  }
+}

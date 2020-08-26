@@ -1,0 +1,201 @@
+
+main {
+  position: absolute;
+  left: var(--sidebar-extended-width);
+  top: var(--navbar-height);
+  
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-rows: auto;
+  grid-auto-flow: row;
+  row-gap: 30px;
+  
+  width: calc(100% - var(--sidebar-extended-width));
+  min-height: calc(100vh - var(--navbar-height));
+  height: auto;
+
+  background: url("/img/background.png");  
+ 
+/* single image, elements up 
+  height: calc(100% - var(--navbar-height));
+  background-size: 100%;
+  overflow-y: scroll; */
+
+/* repeat image on scroll */
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  
+/*  css parallax
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
+  
+  font-family: inherit;  
+  
+  transition-property: left, width;
+  transition: linear 100ms;
+}
+
+main.closed {
+  left: var(--sidebar-width);
+  
+  width: calc(100% - var(--sidebar-width));
+}
+
+main > * {
+  width: 60%;
+  
+  padding: 0 15px;
+  border: 2px solid var(--fgDarker);
+  margin: 50px auto;
+  
+  background-color: var(--bgDarker);
+  
+  margin-top: 30px;
+}
+
+.carousel {
+  position: relative;
+  
+  display: grid;
+  grid-template-columns: 35px auto 35px;
+  grid-template-rows: auto 50px;
+ 
+  padding: 0;
+}
+
+.carousel .arrow {
+  height: 100%;
+  width: 100%;
+  
+  color: var(--fgDark);
+  background-color: var(--bgDarkest);
+  
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.carousel .arrow:hover, .carousel .arrow:active {
+  background-color: var(--fgDarkest);
+}
+
+.carousel .images {
+  overflow: hidden;
+}
+
+.carousel .images img {
+  display: none;
+    width: 100%;
+}
+
+.carousel .images img.selected {
+  display: block;
+}
+
+.carousel .selection {
+  grid-column: 1 / span 3;
+  
+  border-top: 5px solid var(--bxDarker);
+  
+  background-color: var(--fgDarkest);
+}
+
+.post {
+  display: grid;
+  grid-template: minmax(min-content, max-content) auto minmax(min-content, max-content)/ auto 100px;
+  align-items: start;
+  
+  color: var(--fgDarker);
+  
+  border-radius: 5px;
+  margin-top: 30px;
+  
+  font-size: 2rem;
+  
+ -ms-word-break: break-all;
+     word-break: break-all;
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+}
+
+.post .title {
+  grid-column: 1 / -1;
+  
+  color: var(--fgDark);
+  
+  font-size: 4rem;
+}
+
+.post .content {
+  grid-column: 1 / -1;
+}
+
+.post .date {
+  white-space: nowrap;
+}
+
+.post .field {
+  height: 100%;
+  
+  border-bottom: 2px dashed var(--fgDark);
+}
+
+.post .field::after {
+  content: "";
+  position: relative;
+  
+  display: block;
+  
+  height: 3px;
+  
+  padding-right: 1rem;
+  
+  background: var(--fgDark);
+  
+  transform: scaleX(0);
+  transform-origin: 0%;
+  transition: transform 300ms ease;
+}
+
+.post .field:focus-within::after {
+  transform: scaleX(1);
+}
+
+.post .text-input {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  
+  padding: 0.5rem 0;
+  
+  color: inherit;
+  background-color: inherit;
+}
+
+.post .submit {
+  grid-column: 2;
+	
+  width: 100%;
+  padding: 5px;
+  border: 2px solid var(--fgDarker);
+  margin: 5px 5px;
+
+  color: var(--fgDark);
+  background-color: var(--bgDarkest);
+
+  cursor: pointer;
+  font-size: 2rem;
+
+  transition: all 250ms;
+}
+
+.post .submit:hover, .post .submit:focus, .post .submit:hover, .post .submit:focus {
+  border-color: var(--fgDark);
+
+  color: white;
+  background-color: var(--fgDark);
+}

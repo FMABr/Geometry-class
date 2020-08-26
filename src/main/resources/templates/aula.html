@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Geometry Class</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/simpleReset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/gc.css">
+  <link rel="stylesheet" href="/css/aula/aula.css">
+  <script src="https://cdn.tiny.cloud/1/ddjrynb21u5g110gaz97760x2six0sl9fk6onksqsl72p866/tinymce/5/tinymce.min.js"></script>
+</head>
+
+<body>
+  <div id="aula" class="panel">
+    <h1 class="titulo" th:text="${aula.nome}">Nome Aula</h1>
+    <div id="conteudo" th:utext="${aula.conteudo}">Conteudo</div>
+    <button class="max left" type="button"><i class="fas fa-caret-left"></i></button>
+  </div>
+
+  <div class="vertical-gutter"></div>
+
+  <div id="container" class="panel">
+    <canvas id="three"></canvas>
+    <button class="max right" type="button"><i class="fas fa-caret-right"></i></button>  
+  </div>
+  
+  <script src="/js/external/three/three.min.js"></script>
+  <script src="/js/external/three/orbitControls.js"></script>
+  <script src="/js/external/three/transformControls.js"></script>
+  <script src="/js/external/three/dragControls.js"></script>
+  <script src="/js/external/three/earcut.js"></script>
+  <script src="/js/aula.js"></script>
+</body>
+</html>

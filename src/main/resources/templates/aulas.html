@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Geometry Class</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/icon/favicon/favicon.ico">
+    <link rel="stylesheet" href="/css/simpleReset.css">
+    <link rel="stylesheet" href="/css/gc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/aula/lista.css">
+    <link rel="stylesheet" href="/css/popUp.css" sec:authorize="isAnonymous()">
+    <link rel="stylesheet" href="/css/tiny.css">
+  </head>
+  
+  <body>
+    <header class="navbar">
+      <div class="home">
+        <button id="btSidebar"><i class="fas fa-bars"></i></button>
+        <a class="logo" href="/">Geometry class</a>
+      </div>
+
+      <div class="search">
+        <input type="text" placeholder="Pesquisar">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+
+      <div sec:authorize="isAuthenticated()" class="sign">
+        <form th:action="@{/logout}" th:method="POST">
+          <button id="btPerfil">Sair</button>
+        </form>
+      </div>
+
+      <div sec:authorize="isAnonymous()" class="sign">
+        <button type="button" id="btLogin">Login</button>
+        <button type="button" id="btCadastro">Cadastro</button>
+      </div>
+    </header>
+
+    <div sec:authorize="isAnonymous()" id="entrar" class="off">
+      <div class="container">
+        <form id="formCadastro" class="cadastro" th:action="@{/cadastro}" th:object="${usuario}" th:method="POST">
+          <h2>Crie sua conta</h2>
+
+          <div class="field">
+            <input class="text-input" id="nome-usuario" type="text" th:field="*{nome}" placeholder="" pattern=".{0}|.{4,32}" required title="De 4 à 32 caracteres">
+            <label class="text-label" for="nome-usuario" th:attrappend="class=${#fields.hasErrors('nome')}? ' error'">
+            	<span>Nome</span>
+                <span class="erro" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+            </label>
+           </div>
+
+          <div class="field">
+            <input class="text-input" id="email-usuario" type="email" th:field="*{email}" placeholder="" required>
+            <label class="text-label" for="email-usuario" th:attrappend="class=${#fields.hasErrors('email')}? ' error'">
+              <span>Email</span>
+              <span class="erro" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </label>
+          </div>
+
+          <div class="field">
+            <input class="text-input" id="senha-usuario" type="password" th:field="*{senha}" placeholder="" pattern=".{0}|.{4,128}" required title="De 4 à 128 caracteres">
+            <label class="text-label" for="senha-usuario" th:attrappend="class=${#fields.hasErrors('senha')}? ' error'" >
+              <span>Senha</span>
+              <span class="erro" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></span>
+            </label>
+          </div>
+
+          <div class="field">
+            <input class="text-input" id="senha-confirm" type="password" th:field="*{confirmarSenha}" placeholder="" pattern=".{0}|.{4,128}" required title="De 4 à 128 caracteres" >
+            <label class="text-label" for="senha-confirm">Confirmar senha</label>
+          </div>
+
+          <input class="submit" type="submit" value="Cadastrar"></input>
+      </form>
+
+        <button id="btAltFormulario" type="button"><i class="fas fa-caret-right"></i></button>
+
+        <form id="formLogin" class="login" th:action="@{/login}" th:method="POST">
+          <h2>Faça seu login</h2>
+
+          <div class="field">
+            <input class="text-input" id="usuario" name="usuario" type="text" placeholder="" required>
+            <label class="text-label" for="usuario">Nome ou Email</label>
+          </div>
+
+          <div class="field">
+            <input class="text-input" id="senha" name="senha" type="password" placeholder="" required>
+            <label class="text-label" for="senha">Senha</label>
+          </div>
+
+          <input class="submit" type="submit" value="Entrar"></input>
+        </form>
+      </div>
+    </div>
+    
+    <nav class="sidebar closed">
+      <ul class="topics">
+        <li class="link">
+          <a href="/aulas">
+            <div class="icon">
+              <svg viewBox="0 0 343.5 343.5">
+			    <path d="M322.05,161.8h-182.6c-5.5,0-10,4.5-10,10s4.5,10,10,10h182.6c5.5,0,10-4.5,10-10C332.05,166.3,327.65,161.8,322.05,161.8 z"/>
+                <path d="M57.95,125.3c-25.7,0-46.5,20.8-46.5,46.5s20.8,46.5,46.5,46.5s46.5-20.8,46.5-46.5S83.65,125.3,57.95,125.3z M57.95,198.3c-14.7,0-26.5-11.9-26.5-26.5c0-14.7,11.9-26.5,26.5-26.5c14.6,0,26.5,11.9,26.5,26.5S72.55,198.3,57.95,198.3z"/>
+                <path d="M322.05,36.8h-182.6c-5.5,0-10,4.5-10,10s4.5,10,10,10h182.6c5.5,0,10-4.5,10-10C332.05,41.3,327.65,36.8,322.05,36.8z"/>
+                <path d="M57.95,0c-25.7,0-46.5,20.8-46.5,46.5c0,25.7,20.8,46.5,46.5,46.5s46.5-20.8,46.5-46.5C104.45,20.9,83.65,0.1,57.95,0z M57.95,73.1c-14.7,0-26.5-11.9-26.5-26.5c0-14.6,11.9-26.5,26.5-26.5c14.7,0,26.5,11.9,26.5,26.5 C84.45,61.2,72.55,73.1,57.95,73.1z"/>
+                <path d="M322.05,286.8h-182.6c-5.5,0-10,4.5-10,10s4.5,10,10,10h182.6c5.5,0,10-4.5,10-10S327.65,286.8,322.05,286.8z"/>
+                <path d="M57.95,250.5c-25.7,0-46.5,20.8-46.5,46.5c0,25.7,20.8,46.5,46.5,46.5s46.5-20.8,46.5-46.5 C104.45,271.4,83.65,250.5,57.95,250.5z M57.95,323.6c-14.7,0-26.5-11.9-26.5-26.5c0-14.7,11.9-26.5,26.5-26.5 c14.7,0,26.5,11.9,26.5,26.5S72.55,323.6,57.95,323.6z"/>
+              </svg>
+  		    </div>
+  		    <p class="title">Aulas</p>
+  		  </a>
+        </li>
+        
+        <li class="link">
+          <a href="/aulas/cubo">
+            <div class="icon">
+              <svg viewBox="0 0 512 512">
+                <path d="m256 0-222 128v256l222 128 222 -128v-256zm176 136-176 102-176 -102 176-102zM432 136m-368 26 176 102v204l-176 -102zm206 306v-204l176 -101v204 z"></path>
+              </svg>
+  		    </div>
+  		    <p class="title">Cubo</p>
+  		  </a>
+        </li>
+        
+        <li class="link">
+          <a href="/aulas/cilindro">
+          <div class="icon">
+            <svg viewBox="0 0 512 512">
+              <path d="M425.621,38.187C414.763,1.216,272.789,0,256,0S97.237,1.216,86.379,38.187c-0.64,1.387-1.045,2.859-1.045,4.48v426.667c0,1.621,0.405,3.093,1.045,4.48C97.237,510.784,239.211,512,256,512s158.763-1.216,169.621-38.187c0.64-1.387,1.045-2.859,1.045-4.48V42.667C426.667,41.045,426.261,39.573,425.621,38.187z M256,21.333c87.723,0,137.685,13.248,148.075,21.333C393.685,50.752,343.723,64,256,64S118.315,50.752,107.925,42.667C118.315,34.581,168.277,21.333,256,21.333z M405.333,467.989c-6.101,7.851-56.448,22.677-149.333,22.677c-93.995,0-144.619-15.211-149.333-21.333V65.429C149.312,84.544,242.603,85.333,256,85.333s106.688-0.789,149.333-19.904V467.989z"></path>
+            </svg>
+          </div>
+          <p class="title">Cilindro</p>
+          </a>
+        </li>
+        
+        <li class="link">
+          <a href="/aulas/esfera">
+          <div class="icon">
+            <svg viewBox="0 0 512 512">
+              <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M256,21.333c129.387,0,234.667,105.28,234.667,234.667c0,40.363-96.384,85.333-234.667,85.333c-28.629,0-55.339-2.005-79.893-5.44c-3.435-24.555-5.44-51.264-5.44-79.893C170.667,117.717,215.637,21.333,256,21.333z M208.512,26.176C173.184,67.435,149.333,153.707,149.333,256c0,26.688,1.621,52.309,4.651,76.309C72.683,317.205,21.333,285.419,21.333,256C21.333,142.869,101.824,48.192,208.512,26.176z M26.176,303.488c27.072,23.168,73.429,41.429,131.136,51.2c9.792,57.707,28.032,104.064,51.2,131.136C117.163,466.965,45.035,394.837,26.176,303.488z M256,490.667c-29.419,0-61.205-51.349-76.309-132.651c24,3.029,49.621,4.651,76.309,4.651c102.293,0,188.565-23.851,229.824-59.179C463.808,410.176,369.131,490.667,256,490.667z"></path>
+            </svg>
+          </div>
+          <p class="title">Esfera</p>
+          </a>
+        </li>
+        
+        <li class="link">
+          <a href="/aulas/piramide">
+          <div class="icon">
+            <svg viewBox="0 0 512 512">
+              <path d="M509.711,345.42L243.109,4.15c-0.149-0.171-0.277-0.341-0.427-0.491c-1.515-1.749-3.477-2.901-5.611-3.392c-0.341-0.085-0.683-0.149-1.045-0.192h-0.021c-2.581-0.299-5.269,0.277-7.531,1.899c-0.341,0.277-0.683,0.533-1.003,0.832c-1.131,1.045-2.005,2.283-2.581,3.627L0.975,496.908c-1.493,3.307-1.216,7.147,0.747,10.197c1.941,3.051,5.333,4.885,8.96,4.885h341.099c0.085,0,0.171,0,0.235,0c0.768,0,1.536-0.085,2.325-0.32c0.021,0,0.021,0,0.021,0c0.021,0,0.021,0,0.021,0c0.021,0,0.021,0,0.021,0h0.021c0.021-0.021,0.043-0.021,0.064-0.021h0.021c0.021,0,0.043,0,0.043,0h0.021c1.984-0.491,3.712-1.536,5.056-2.923l149.205-149.205C512.655,355.702,513.018,349.665,509.711,345.42z M27.279,490.657L231.503,43.276L338.49,490.657H27.279z M357.967,480.31L256.463,55.862l230.677,295.275L357.967,480.31z"></path>
+            </svg>
+          </div>
+          <p class="title">Piramide</p>
+          </a>
+        </li>
+        
+        <li class="link">
+          <a href="/aulas/prisma">
+          <div class="icon">
+            <svg viewBox="0 0 512 512">
+              <path d="m34,0 444,0 0,384-222,128-222-128zm24,24 198,128 198,-128zm0,28 0,318 186,110 0,-310zm396,0-186,118 0,310 186-110z"></path>
+            </svg>
+          </div>
+          <p class="title">Prisma</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="closed">
+    
+     <div sec:authorize="hasAuthority('CRIAR_AULA')" class="aviso">
+       <a th:href="'/editor/' + @{${pesquisa}}">Criar nova aula</a>
+     </div>
+    
+     <div class="aula" th:each="aula : ${aulas}">
+        <h2 class="nome" th:text="${#strings.replace(#strings.abbreviate(aula.nome, 60), '_', ' ')}">Titulo</h2>
+        <div class="content" th:text="${#strings.abbreviate(aula.conteudo,300)}">Conteudo</div>
+        <p class="autor" th:text="'Criada por: ' + ${aula.usuario}">Autor</p>
+        <a class="link" th:href="'/aula/' + ${aula.nome}">Acessar</a>
+      </div>
+    </main>
+  </body>
+</html>

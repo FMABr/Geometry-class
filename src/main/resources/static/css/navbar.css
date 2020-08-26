@@ -1,0 +1,142 @@
+.navbar {
+  position: fixed;
+  z-index: 5;
+  
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column; 
+  justify-items: center;
+  align-items: center;
+
+  width: 100%;
+  height: var(--navbar-height);
+  border-bottom: 2px solid var(--fgDarker);
+
+  background-color: var(--bgDarker);
+}
+
+.navbar > * {
+  display: flex;
+
+  justify-self: stretch;
+}
+
+.home {
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 4rem;
+}
+
+.home button {
+  margin: 0 1.5rem 0 2rem;
+  
+  color: var(--fgDarker);
+  background-color: inherit;
+
+  cursor: pointer;
+  font-size: 3rem;
+
+  transition: color 0.5s, transform 100ms;
+}
+
+.home button:hover {
+  color: var(--fgDark);
+}
+
+.home button.active { 
+  color: var(--fgDark);
+  transform: rotate(90deg);
+}
+
+.home .logo {
+  font-size: 3rem;
+}
+
+.logo:link, .logo:visited, .logo:hover, .logo:active {
+  color: var(--fgDark);
+
+  text-decoration: none;
+}
+
+.search {
+  height: 3rem;
+  
+  background-color: var(--bgDarkest);
+}
+
+.search input {
+  width: 90%;
+  padding-left: 4px;
+  border: 2px solid var(--fgDarker);
+  border-right: none;
+
+  color: white;
+  background-color: inherit;
+  
+  font-size: 1.5rem;
+}
+
+.search input:focus {
+  border-color: var(--fgDark);
+}
+
+.search input:focus ~ button {
+  border-left-color: var(--fgDark);
+}
+
+.search input:focus::placeholder {
+  color: transparent;
+}
+
+.search button {
+  width: 10%;
+  border: 2px solid var(--fgDarker);
+
+  color: var(--fgDark);
+  background-color: inherit;
+
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.sign {  
+  justify-content: flex-end;
+}
+
+.sign button {
+  padding: 5px;
+  border: 2px solid var(--fgDarker);
+  margin: 0 5px;
+
+  color: var(--fgDark);
+  background-color: var(--bgDarkest);
+
+  cursor: pointer;
+  font-size: 2rem;
+
+  transition: all 250ms;
+}
+
+.search button:hover, .search button:focus, .sign button:hover, .sign button:focus {
+  border-color: var(--fgDark);
+
+  color: white;
+  background-color: var(--fgDark);
+}
+
+.blurry {
+  filter: blur(1px);
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.off {
+  display: none !important;
+}
+
