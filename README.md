@@ -20,7 +20,7 @@ Visando o aprendizado, o site tem como objetivo auxiliar os estudantes no estudo
 
 ### [<img alt="Tomcat" rel="external" src="http://tomcat.apache.org/res/images/tomcat.png" width="150" height="106"/>][Tomcat]
 
-### [<img alt="Spring" rel="external" src="https://spring.io/images/spring-logo-fc4350c59999bb62c468361537212419.svg" width="400" height="100"/>][Spring]
+### [<img alt="Spring" rel="external" src="https://spring.io/images/spring-logo-9146a4d3298760c2e7e49595184e1975.svg" width="400" height="100"/>][Spring]
 **Especificamente:**
 - [Spring Framework]
 - [Spring Boot]
