@@ -30,6 +30,7 @@ Visando o aprendizado, o site tem como objetivo auxiliar os estudantes no estudo
 ### [<img alt="Hibernate" rel="external" src="https://hibernate.org/images/hibernate-logo.svg"  width="400" height="100"/>][Hibernate]
 **Especificamente:**
 - [Hibernate ORM]
+- [Hibernate Validator]
 
 ### [<img alt="Thymeleaf" rel="external" src="https://www.thymeleaf.org/images/thymeleaf.png"  width="150" height="150"/>][Thymeleaf]
 
@@ -61,6 +62,7 @@ Visando o aprendizado, o site tem como objetivo auxiliar os estudantes no estudo
 
 [Hibernate]: https://hibernate.org "Hibernate"
 [Hibernate ORM]: https://hibernate.org/orm
+[Hibernate Validator]: https://hibernate.org/validator
 
 [Thymeleaf]: https://www.thymeleaf.org "Thymeleaf"
 
